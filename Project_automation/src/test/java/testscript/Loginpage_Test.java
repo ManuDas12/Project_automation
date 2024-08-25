@@ -27,8 +27,7 @@ public class Loginpage_Test extends Base{
   @Test(retryAnalyzer = retry.Retry.class)
  // @Parameters({"user name","password"})
   public void verifyUserIsAbleToSignInUsingValidCredentials() throws IOException {
-	 // String userNameValue="admin";
-	  //String passwordVAlue="admin";
+	  
 	  String userNameValue=Excel_Utilities.getStringData(1, 0, "Loginpage");
 	  String passwordValue=Excel_Utilities.getStringData(1, 1, "Loginpage");
 	  login_Class loginClass=new login_Class(driver); 
@@ -42,18 +41,57 @@ public class Loginpage_Test extends Base{
   @Test(groups = {"smoke testing"})
   @Parameters({"validuserName","invalidpassword"})
   public void verifyValidUsernameAndInvalidPassword(String validUser,String invalidPass) {
-	 // String userNameValue="admin";
-	  //String passwordVAlue="admin";
+	
 	  login_Class loginClass=new login_Class(driver);
 	  loginClass.enterUserNameField(validUser);
 	  loginClass.enterPasswordField(invalidPass);
 	  loginClass.clickSigninButton();
 	  boolean isDashboadNotLoaded=loginClass.isDashboadNotLoaded();
-	  assertTrue(isDashboadNotLoaded,"home page is not loaded,alert is not displayed");
+	  assertTrue(isDashboadNotLoaded,Constants.ERRORMSGFORLOGIN);
   }
   @Test(description = "parameterised ")
   //@Parameters({"user name","password"})
-  public void verifyInvalidUsernameAndValidPassword() {
+  public void verifyInvalidUsernameAndValidPassword() throws IOException {
+	  String userNameValue=Excel_Utilities.getStringData(3, 0, "Loginpage");
+	  String passwordValue=Excel_Utilities.getStringData(3, 1, "Loginpage");
+	  login_Class loginClass=new login_Class(driver);
+	  loginClass.enterUserNameField(userNameValue);
+	  loginClass.enterPasswordField(passwordValue);
+	  loginClass.clickSigninButton();
+	  boolean isDashboadNotLoaded=loginClass.isDashboadNotLoaded();
+	  assertTrue(isDashboadNotLoaded,Constants.ERRORMSGFORLOGIN);
+  }
+  @Test(dataProvider = "Credentials")
+  public void verifyInvalidUsernameAndInvalidPassword(String userNameValue,String passwordVAlue) {
+
+	  login_Class loginClass=new login_Class(driver);
+	  loginClass.enterUserNameField(userNameValue);
+	  loginClass.enterPasswordField(passwordVAlue);
+	  loginClass.clickSigninButton();
+	  
+	  
+	  boolean isDashboadNotLoaded=loginClass.isDashboadNotLoaded();
+	  assertTrue(isDashboadNotLoaded,Constants.ERRORMSGFORLOGIN);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*@Test(description = "parameterised ")
+//@Parameters({"user name","password"})
+public void verifyInvalidUsernameAndValidPassword() {
 	  String userNameValue="user12";
 	  String passwordVAlue="admin";
 	  login_Class loginClass=new login_Class(driver);
@@ -61,19 +99,4 @@ public class Loginpage_Test extends Base{
 	  loginClass.enterPasswordField(passwordVAlue);
 	  loginClass.clickSigninButton();
 	  boolean isDashboadNotLoaded=loginClass.isDashboadNotLoaded();
-	  assertTrue(isDashboadNotLoaded,"home page is not loaded,alert is not displayed");
-  }
-  @Test(dataProvider = "Credentials")
-  public void verifyInvalidUsernameAndInvalidPassword(String userNameValue,String passwordVAlue) {
-	  //String userNameValue="user";
-	  //String passwordVAlue="user@123";
-	  login_Class loginClass=new login_Class(driver);
-	  loginClass.enterUserNameField(userNameValue);
-	  loginClass.enterPasswordField(passwordVAlue);
-	  loginClass.clickSigninButton();
-	  
-	  
-	  boolean isDashboadNotLoaded=loginClass.isDashboadNotLoaded();
-	  assertTrue(isDashboadNotLoaded,"home page is not loaded,alert is not displayed");
-  }
-}
+	  assertTrue(isDashboadNotLoaded,"home page is not loaded,alert is not displayed");*/

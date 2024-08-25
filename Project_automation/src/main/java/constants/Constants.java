@@ -3,7 +3,7 @@ package constants;
 public class Constants {
 
 	public static final String TESTDATAFILE=System.getProperty("user.dir")+"\\src\\main\\resources\\testdata.xlsx";
-	public static final String ERRORMSGFORLOGIN="home page is not loaded ,invalid credentials";
+	public static final String ERRORMSGFORLOGIN="home page is not loaded or invalid credentials";
 	public static final String NEWUSERNOTCREATED="new user cant be created";
 	public static final String USERNOTFOUND="user not found";
 	public static final String MANAGEPAGENOTSUBMITED="user not submited all values or error";
