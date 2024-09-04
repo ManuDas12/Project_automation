@@ -4,18 +4,16 @@
   <listeners>
     <listener class-name="generateTestReport.Listeners"/>
   </listeners>
-  <test thread-count="5" name="TestngFile(failed)">
-    <parameter name="user name" value="admin"/>
-    <parameter name="password" value="admin"/>
+  <test thread-count="5" name="chaining(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
       <class name="testscript.Loginpage_Test">
         <methods>
-          <include name="verifyInvalidUsernameAndInvalidPassword" invocation-numbers="0"/>
+          <include name="verifyUserIsAbleToSignInUsingValidCredentials"/>
           <include name="afterMethod"/>
           <include name="initialiseBrowser"/>
         </methods>
       </class> <!-- testscript.Loginpage_Test -->
     </classes>
-  </test> <!-- TestngFile(failed) -->
+  </test> <!-- chaining(failed) -->
 </suite> <!-- Failed suite [Suite] -->

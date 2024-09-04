@@ -19,16 +19,19 @@ public login_Class(WebDriver driver){
 @FindBy(xpath="//p[text()='Dashboard']") WebElement dashboard;
 @FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") WebElement alertmsg;
 
-public void enterUserNameField(String userName) {
+public login_Class enterUserNameField(String userName) {
 	userNameField.sendKeys(userName);
+	return this;
 }
 
-public void enterPasswordField(String password) {
+public login_Class enterPasswordField(String password) {
 	passwordField.sendKeys(password);
+	return this;
 }
 
-public void clickSigninButton() {
+public Admin_User_Edit clickSigninButton() {
 	signinButton.click();
+	return new Admin_User_Edit(driver);
 }
 
 public boolean isDashboardLoaded() {
@@ -38,6 +41,5 @@ public boolean isDashboardLoaded() {
 public boolean isDashboadNotLoaded() {
 	return alertmsg.isDisplayed();
 }
-
 
 }

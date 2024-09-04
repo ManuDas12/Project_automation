@@ -8,11 +8,25 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Grouping</th></tr>
-<tr><td><a href="#t0">Grouping.xml</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">7,547</td><td>smoke testing</td><td></td></tr>
+<tr><th colspan="8">Suite</th></tr>
+<tr><td><a href="#t0">chaining</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num attn">1</td><td class="num">23,081</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Grouping</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Grouping.xml &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">testscript.Loginpage_Test</td><td><a href="#m0">verifyValidUsernameAndInvalidPassword</a></td><td rowspan="1">1724604261010</td><td rowspan="1">885</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">chaining &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">testscript.Loginpage_Test</td><td><a href="#m0">verifyUserIsAbleToSignInUsingValidCredentials</a></td><td rowspan="1">1725379478349</td><td rowspan="1">1154</td></tr><tr><th colspan="4">chaining &#8212; retried</th></tr><tr class="retriedeven"><td rowspan="2">testscript.Loginpage_Test</td><td><a href="#m1">verifyUserIsAbleToSignInUsingValidCredentials</a></td><td rowspan="2">1725379462402</td><td rowspan="2">2779</td></tr><tr class="retriedeven"><td><a href="#m2">verifyUserIsAbleToSignInUsingValidCredentials</a></td></tr></tbody>
 </table>
-<h2>Grouping.xml</h2><h3 id="m0">testscript.Loginpage_Test#verifyValidUsernameAndInvalidPassword</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>admin</td><td>1111</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>chaining</h2><h3 id="m0">testscript.Loginpage_Test#verifyUserIsAbleToSignInUsingValidCredentials</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;org.apache.poi.xssf.usermodel.XSSFCell.getStringCellValue()&quot; because &quot;h&quot; is null
+	at utilities.Excel_Utilities.getStringData(Excel_Utilities.java:30)
+	at testscript.Loginpage_Test.verifyUserIsAbleToSignInUsingValidCredentials(Loginpage_Test.java:37)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">testscript.Loginpage_Test#verifyUserIsAbleToSignInUsingValidCredentials</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;org.apache.poi.xssf.usermodel.XSSFCell.getStringCellValue()&quot; because &quot;h&quot; is null
+	at utilities.Excel_Utilities.getStringData(Excel_Utilities.java:30)
+	at testscript.Loginpage_Test.verifyUserIsAbleToSignInUsingValidCredentials(Loginpage_Test.java:37)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">testscript.Loginpage_Test#verifyUserIsAbleToSignInUsingValidCredentials</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;org.apache.poi.xssf.usermodel.XSSFCell.getStringCellValue()&quot; because &quot;h&quot; is null
+	at utilities.Excel_Utilities.getStringData(Excel_Utilities.java:30)
+	at testscript.Loginpage_Test.verifyUserIsAbleToSignInUsingValidCredentials(Loginpage_Test.java:37)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -10,10 +10,13 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import constants.Constants;
+import pages.Admin_User_Edit;
 import pages.login_Class;
 import utilities.Excel_Utilities;
 
 public class Loginpage_Test extends Base{
+	login_Class loginClass;
+	Admin_User_Edit adminEdit;
 	@DataProvider(name = "Credentials")
 	public Object[][] testData() {// data provider
 		Object[][] input = new Object[2][2];
@@ -24,16 +27,20 @@ public class Loginpage_Test extends Base{
 		return input;
 
 	}
-  @Test(retryAnalyzer = retry.Retry.class)
- // @Parameters({"user name","password"})
+  @Test(retryAnalyzer = retry.Retry.class) 
   public void verifyUserIsAbleToSignInUsingValidCredentials() throws IOException {
 	  
 	  String userNameValue=Excel_Utilities.getStringData(1, 0, "Loginpage");
 	  String passwordValue=Excel_Utilities.getStringData(1, 1, "Loginpage");
-	  login_Class loginClass=new login_Class(driver); 
-	  loginClass.enterUserNameField(userNameValue);
-	  loginClass.enterPasswordField(passwordValue);
-	  loginClass.clickSigninButton();
+	  String UserNameEdit=Excel_Utilities.getStringData(1, 0, "AdminUSerEdit");
+	  String passwordEdit=Excel_Utilities.getStringData(1, 2, "AdminUSerEdit");
+	  String userTypeEditDrop=Excel_Utilities.getStringData(1, 3, "AdminUSerEdit");
+	  
+	  loginClass=new login_Class(driver);
+	  adminEdit=loginClass.enterUserNameField(userNameValue).enterPasswordField(passwordValue).clickSigninButton().adminUserClickForEdit().editButtonClickForEdit().usernameEditField(UserNameEdit).passwordEditField(passwordEdit).userTypeEditDrop(userTypeEditDrop).updateButtonClick();
+	  //loginClass.enterUserNameField(userNameValue);
+	  //loginClass.enterPasswordField(passwordValue);
+	  //loginClass.clickSigninButton();
 	  boolean isHomePageIsLoaded=loginClass.isDashboardLoaded();
 	  assertTrue(isHomePageIsLoaded,Constants.ERRORMSGFORLOGIN);
 

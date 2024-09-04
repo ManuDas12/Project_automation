@@ -22,25 +22,32 @@ Page_Utilities page=new Page_Utilities();
 @FindBy(xpath="//select[@id='user_type']") WebElement userTypeEdit;
 @FindBy(xpath = "//button[@name='Update']")WebElement updateButton;
 
-public void adminUserClickForEdit() {
+public Admin_User_Edit adminUserClickForEdit() {
 	adminUserClick.click();
+	return this;
 }
-public void editButtonClickForEdit() {
+public Admin_User_Edit editButtonClickForEdit() {
 	editButtonClick.click();
+	return this;
+	
 }
-public void usernameEditField(String username) {
+public Admin_User_Edit usernameEditField(String username) {
 	userNameEdit.clear();
 	userNameEdit.sendKeys(username);
+	return this;
 }
-public void passwordEditField(String password) {
+public Admin_User_Edit passwordEditField(String password) {
 	passwordEdit.clear();
 	passwordEdit.sendKeys(password);
+	return this;
 }
-public void userTypeEditDrop(String userType) {
+public Admin_User_Edit userTypeEditDrop(String userType) {
 page.selectionMethods(userTypeEdit,userType);
+return this;
 }
-public void updateButtonClick() {
+public Admin_User_Edit updateButtonClick() {
 	updateButton.click();
+	return this;
 }
 public boolean isEditComplete() {
 	return updateButton.isDisplayed();
