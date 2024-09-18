@@ -6,15 +6,12 @@
 	</listeners>
 	<test thread-count="5" name="chaining">
 		<parameter name="browser" value="Chrome"></parameter>
+				
 
 
 
 		<classes>
-			<class name="testscript.Loginpage_Test">
-				<methods>
-					<include name="verifyUserIsAbleToSignInUsingValidCredentials"></include>
-					
-				</methods>
+			<class name="testscript.AdminUserNewProfileTest">		
 			</class>
 		</classes>
 

@@ -62,6 +62,7 @@ public FileInputStream fis;
 		  Screenshot_Utilities sc = new Screenshot_Utilities();
 			sc.captureFailureScreenShot(driver, itResult.getName());
 		}
-  }
+	  driver.quit();
+	  }
 
 }

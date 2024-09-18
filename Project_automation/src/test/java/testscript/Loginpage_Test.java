@@ -10,13 +10,14 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import constants.Constants;
+import pages.AdminUserNewProfile;
 import pages.Admin_User_Edit;
 import pages.login_Class;
 import utilities.Excel_Utilities;
 
 public class Loginpage_Test extends Base{
 	login_Class loginClass;
-	Admin_User_Edit adminEdit;
+	AdminUserNewProfile adminUser;
 	@DataProvider(name = "Credentials")
 	public Object[][] testData() {// data provider
 		Object[][] input = new Object[2][2];
@@ -32,12 +33,12 @@ public class Loginpage_Test extends Base{
 	  
 	  String userNameValue=Excel_Utilities.getStringData(1, 0, "Loginpage");
 	  String passwordValue=Excel_Utilities.getStringData(1, 1, "Loginpage");
-	  String UserNameEdit=Excel_Utilities.getStringData(1, 0, "AdminUSerEdit");
-	  String passwordEdit=Excel_Utilities.getStringData(1, 2, "AdminUSerEdit");
-	  String userTypeEditDrop=Excel_Utilities.getStringData(1, 3, "AdminUSerEdit");
+	  String usernameValue1= Excel_Utilities.getStringData(1, 0, "AdminUserPage");
+	  String passwordValue1=Excel_Utilities.getStringData(1, 1, "AdminUserPage");
+	  String userTypeValue1=Excel_Utilities.getStringData(1, 2, "AdminUserPage");
 	  
 	  loginClass=new login_Class(driver);
-	  adminEdit=loginClass.enterUserNameField(userNameValue).enterPasswordField(passwordValue).clickSigninButton().adminUserClickForEdit().editButtonClickForEdit().usernameEditField(UserNameEdit).passwordEditField(passwordEdit).userTypeEditDrop(userTypeEditDrop).updateButtonClick();
+	  adminUser=loginClass.enterUserNameField(userNameValue).enterPasswordField(passwordValue).clickSigninButton().adminUserClickButton().newButtonClick().userNamevalue(usernameValue1).passwordValue(passwordValue1).userTypeDropDownField(userTypeValue1).clickSubmitButton();
 	  //loginClass.enterUserNameField(userNameValue);
 	  //loginClass.enterPasswordField(passwordValue);
 	  //loginClass.clickSigninButton();
@@ -47,11 +48,11 @@ public class Loginpage_Test extends Base{
   }
   @Test(groups = {"smoke testing"})
   @Parameters({"validuserName","invalidpassword"})
-  public void verifyValidUsernameAndInvalidPassword(String validUser,String invalidPass) {
+  public void verifyValidUsernameAndInvalidPassword(String validuserName,String invalidpassword) {
 	
 	  login_Class loginClass=new login_Class(driver);
-	  loginClass.enterUserNameField(validUser);
-	  loginClass.enterPasswordField(invalidPass);
+	  loginClass.enterUserNameField(validuserName);
+	  loginClass.enterPasswordField(invalidpassword);
 	  loginClass.clickSigninButton();
 	  boolean isDashboadNotLoaded=loginClass.isDashboadNotLoaded();
 	  assertTrue(isDashboadNotLoaded,Constants.ERRORMSGFORLOGIN);
@@ -59,8 +60,8 @@ public class Loginpage_Test extends Base{
   @Test(description = "parameterised ")
   //@Parameters({"user name","password"})
   public void verifyInvalidUsernameAndValidPassword() throws IOException {
-	  String userNameValue=Excel_Utilities.getStringData(3, 0, "Loginpage");
-	  String passwordValue=Excel_Utilities.getStringData(3, 1, "Loginpage");
+	  String userNameValue=Excel_Utilities.getStringData(2, 0, "Loginpage");
+	  String passwordValue=Excel_Utilities.getStringData(2, 1, "Loginpage");
 	  login_Class loginClass=new login_Class(driver);
 	  loginClass.enterUserNameField(userNameValue);
 	  loginClass.enterPasswordField(passwordValue);

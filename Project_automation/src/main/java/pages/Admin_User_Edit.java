@@ -47,7 +47,7 @@ return this;
 }
 public Admin_User_Edit updateButtonClick() {
 	updateButton.click();
-	return this;
+	return new  Admin_User_Edit(driver);
 }
 public boolean isEditComplete() {
 	return updateButton.isDisplayed();

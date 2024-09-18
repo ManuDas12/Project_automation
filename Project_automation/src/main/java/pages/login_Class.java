@@ -19,6 +19,8 @@ public login_Class(WebDriver driver){
 @FindBy(xpath="//p[text()='Dashboard']") WebElement dashboard;
 @FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") WebElement alertmsg;
 
+@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin'][@class='small-box-footer']") WebElement adminUserClick;
+
 public login_Class enterUserNameField(String userName) {
 	userNameField.sendKeys(userName);
 	return this;
@@ -29,9 +31,14 @@ public login_Class enterPasswordField(String password) {
 	return this;
 }
 
-public Admin_User_Edit clickSigninButton() {
+public AdminUserNewProfile clickSigninButton() {
 	signinButton.click();
-	return new Admin_User_Edit(driver);
+	return new AdminUserNewProfile(driver);
+}
+
+public AdminUserNewProfile adminUserClickButton() {
+	adminUserClick.click();
+	return new AdminUserNewProfile(driver);
 }
 
 public boolean isDashboardLoaded() {

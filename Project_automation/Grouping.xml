@@ -7,8 +7,7 @@
 	</listeners>
 
 	<parameter name="browser" value="Chrome"></parameter>
-	<parameter name="validuserName" value="admin"></parameter>
-	<parameter name="invalidpassword" value="1111"></parameter>
+
 
 	<test thread-count="5" name="Grouping.xml">
 		<groups>

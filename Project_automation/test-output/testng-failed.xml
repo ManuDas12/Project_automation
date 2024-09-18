@@ -7,13 +7,13 @@
   <test thread-count="5" name="chaining(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="testscript.Loginpage_Test">
+      <class name="testscript.AdminUserNewProfileTest">
         <methods>
-          <include name="verifyUserIsAbleToSignInUsingValidCredentials"/>
+          <include name="verifythe_User_Is_Ableto_Add_NewUser"/>
           <include name="afterMethod"/>
           <include name="initialiseBrowser"/>
         </methods>
-      </class> <!-- testscript.Loginpage_Test -->
+      </class> <!-- testscript.AdminUserNewProfileTest -->
     </classes>
   </test> <!-- chaining(failed) -->
 </suite> <!-- Failed suite [Suite] -->

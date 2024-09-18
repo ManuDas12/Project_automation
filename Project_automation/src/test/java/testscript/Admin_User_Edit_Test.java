@@ -12,6 +12,7 @@ import pages.login_Class;
 import utilities.Excel_Utilities;
 
 public class Admin_User_Edit_Test extends Base {
+	Admin_User_Edit_Test adminUser;
   @Test
   public void verifyTheUserCanAbleToEditAdminUSer() throws IOException {
 	  Admin_User_Edit adminEdit=new Admin_User_Edit(driver);

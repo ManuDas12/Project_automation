@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="classes" name="Failed suite [Parallel Class Testing]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="classes" name="parallel test(failed)">
+    <classes>
+      <class name="testscript.Sub_Category_Search_Test">
+        <methods>
+          <include name="verifyUserCanAbleTo_SubCategory_Search"/>
+          <include name="afterMethod"/>
+          <include name="initialiseBrowser"/>
+        </methods>
+      </class> <!-- testscript.Sub_Category_Search_Test -->
+      <class name="testscript.Loginpage_Test">
+        <methods>
+          <include name="verifyInvalidUsernameAndInvalidPassword"/>
+          <include name="verifyUserIsAbleToSignInUsingValidCredentials"/>
+          <include name="afterMethod"/>
+          <include name="verifyValidUsernameAndInvalidPassword"/>
+          <include name="initialiseBrowser"/>
+          <include name="verifyInvalidUsernameAndValidPassword"/>
+        </methods>
+      </class> <!-- testscript.Loginpage_Test -->
+    </classes>
+  </test> <!-- parallel test(failed) -->
+</suite> <!-- Failed suite [Parallel Class Testing] -->

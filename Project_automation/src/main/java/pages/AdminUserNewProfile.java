@@ -16,7 +16,7 @@ public AdminUserNewProfile(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		// TODO Auto-generated constructor stub		
 	}
-@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']") WebElement adminUserClick;
+@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin'][@class='small-box-footer']") WebElement adminUserClick;
 @FindBy(xpath="//a[@onclick='click_button(1)']") WebElement clickNewButton;
 @FindBy(xpath="//input[@name='username']") WebElement userNameField;
 @FindBy(xpath="//input[@name='password']") WebElement passwordField;
@@ -24,30 +24,36 @@ public AdminUserNewProfile(WebDriver driver) {
 @FindBy(xpath="//button[@name='Create']") WebElement submitButton;
 @FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement alertMsg;
 
-public void adminUserClickButton() {
+public AdminUserNewProfile adminUserClickButton() {
 	adminUserClick.click();
+	return this;
 }
 
-public void newButtonClick() {
+public AdminUserNewProfile newButtonClick() {
 	clickNewButton.click();
+	return this;
 }
 
-public void userNamevalue(String username) {
+public AdminUserNewProfile userNamevalue(String username) {
 	userNameField.sendKeys(username);
+	return this;
 }
 
-public void passwordValue(String password) {
+public AdminUserNewProfile passwordValue(String password) {
 	passwordField.sendKeys(password);
+	return this;
 }
 
-public void userTypeDropDownField(String usertype) {
+public AdminUserNewProfile userTypeDropDownField(String usertype) {
 	//Select selectuser=new Select(userTypeDropDown);
 	//selectuser.selectByVisibleText(usertype);
 	Page_Utilities page=new Page_Utilities();
 	page.selectionMethods(userTypeDropDown, usertype);
+	return this;
 }
-public void clickSubmitButton() {
+public AdminUserNewProfile clickSubmitButton() {
 	submitButton.click();
+	return new AdminUserNewProfile(driver);
 }
 
 public boolean isNewUserCreated() {

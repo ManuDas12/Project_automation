@@ -13,29 +13,36 @@ import pages.login_Class;
 import utilities.Excel_Utilities;
 
 public class AdminUserNewProfileTest extends Base{
-  @Test
+	login_Class loginClass;
+	AdminUserNewProfile adminUser;
+
+ @Test
   public void verifythe_User_Is_Ableto_Add_NewUser() throws IOException {
 	  //super.verifyUserIsAbleToSignInUsingValidCredentials();
 	  String userNameValue=Excel_Utilities.getStringData(1, 0, "Loginpage");
 	  String passwordValue=Excel_Utilities.getStringData(1, 1, "Loginpage");
-	  login_Class loginClass=new login_Class(driver);
-	  loginClass.enterUserNameField(userNameValue);
-	  loginClass.enterPasswordField(passwordValue);
-	  loginClass.clickSigninButton();
 	  
-	  AdminUserNewProfile adminUser=new AdminUserNewProfile(driver);
-	  adminUser.adminUserClickButton();
-	  adminUser.newButtonClick();
 	  
 	  String usernameValue1= Excel_Utilities.getStringData(1, 0, "AdminUserPage");
 	  String passwordValue1=Excel_Utilities.getStringData(1, 1, "AdminUserPage");
 	  String userTypeValue1=Excel_Utilities.getStringData(1, 2, "AdminUserPage");
 	  
+	  loginClass=new login_Class(driver);
+	  loginClass.enterUserNameField(userNameValue).enterPasswordField(passwordValue).clickSigninButton();
+	 /* loginClass.enterPasswordField(passwordValue);
+	  loginClass.clickSigninButton();*/
+	  adminUser=loginClass.adminUserClickButton().newButtonClick().userNamevalue(usernameValue1).passwordValue(passwordValue1).userTypeDropDownField(userTypeValue1).clickSubmitButton();
+	  
+	  /*AdminUserNewProfile adminUser=new AdminUserNewProfile(driver);
+	  adminUser.adminUserClickButton();
+	  adminUser.newButtonClick();
+	
+	  
 	  adminUser.userNamevalue(usernameValue1);
 	  adminUser.passwordValue(passwordValue1);
 	  adminUser.userTypeDropDownField(userTypeValue1);
 	  
-	  adminUser.clickSubmitButton();
+	  adminUser.clickSubmitButton();*/
 	  
 	  boolean isNewUserCreated=adminUser.isNewUserCreated();
 	  assertTrue(isNewUserCreated,Constants.NEWUSERNOTCREATED);
