@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="generateTestReport.Listeners"/>
-  </listeners>
-  <test thread-count="5" name="chaining(failed)">
-    <parameter name="browser" value="Chrome"/>
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testscript.AdminUserNewProfileTest">
+      <class name="testscript.Manage_Page_List_Search_Test">
         <methods>
-          <include name="verifythe_User_Is_Ableto_Add_NewUser"/>
+          <include name="verify_The_UserAbleTo_SearchItemsIn_ManagePage"/>
           <include name="afterMethod"/>
           <include name="initialiseBrowser"/>
         </methods>
-      </class> <!-- testscript.AdminUserNewProfileTest -->
+      </class> <!-- testscript.Manage_Page_List_Search_Test -->
     </classes>
-  </test> <!-- chaining(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
